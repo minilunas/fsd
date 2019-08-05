@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salary Income Predictor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.13.1/bootstrap-table.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.13.1/bootstrap-table.min.js"></script>
+
+    <!-- Latest compiled and minified Locales -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.13.1/locale/bootstrap-table-zh-CN.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <nav class="navbar fixed-top navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">luans</a>
+    </nav>
+</div>
+<div style="margin-top: 80px;width:100%;">
+    <div class="jumbotron text-center" style="height:80px;padding:10px;">
+        <h1>Welcome to use Salary Income Predictor </h1>
+        <p></p>
+    </div>
+
+    <div class="container">
+
+        <form role="form"  id="form">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="starting_salary">Starting salary</label>
+                        <input type="number" class="form-control" id="starting_salary" name="starting_salary" placeholder="please input starting salary">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="increment">Increment(%)</label>
+                        <input type="number" class="form-control" id="increment" name="increment" placeholder="please input increment">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="increment_fre">Increment frequently</label>
+                        <select class="form-control" id="increment_fre" name="increment_fre" placeholder="please input increment frequently">
+                            <option value="quarterly">quarterly</option>
+                            <option value="half_yearly">half yearly</option>
+                            <option value="annually">annually</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="deduction">Deduction(%)</label>
+                        <input type="number" class="form-control" id="deduction" name="deduction" placeholder="please input deduction">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="deduction_fre">Deduction frequently</label>
+                        <select class="form-control" id="deduction_fre" name="deduction_fre" placeholder="please input deduction frequently">
+                            <option value="quarterly">quarterly</option>
+                            <option value="half_yearly">half yearly</option>
+                            <option value="annually">annually</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="prediction">Prediction(year)</label>
+                        <input type="number" class="form-control" id="prediction" name="prediction" placeholder="please input prediction">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" onclick="submitForm(this)" class="btn btn-primary">提交</button>
+                </div>
+            </div>
+        </form>
+
+        <br/>
+        <div class="alert alert-danger" id="error" style="display: none;"></div>
+        <br/>
+        <table data-toggle="table" id="table1">
+            <thead>
+            <tr>
+                <th data-field="year">Year</th>
+                <th data-field="starting_salary">Starting salary</th>
+                <th data-field="increment_fre">Number of Increments</th>
+                <th data-field="increment">Increment %</th>
+                <th data-field="incrementAmount">Increment Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <br/>
+        <br/>
+        <table data-toggle="table" id="table2">
+            <thead>
+            <tr>
+                <th data-field="year">Year</th>
+                <th data-field="incrementAmount">Starting salary</th>
+                <th data-field="deduction_fre">Number of Deductions</th>
+                <th data-field="deduction">Deduction %</th>
+                <th data-field="deductionAmount">Deduction Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <br/>
+        <br/>
+        <table data-toggle="table" id="table3">
+            <thead>
+            <tr>
+                <th data-field="year">Year</th>
+                <th data-field="starting_salary">Starting salary</th>
+                <th data-field="incrementAmount">Increment Amount</th>
+                <th data-field="deductionAmount">Deduction Amount</th>
+                <th data-field="salaryGrowth">Salary Growth</th>
+                <th data-field="salaryGrowthPer">Salary Growth（%）</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <br/>
+    </div>
+</div>
+</body>
+<script language="javascript">
+    function submitForm(o) {
+
+        let data = $("#form").serializeArray();
+        $.ajax({
+            url: "/cal",
+            type: "post",
+            data:data,
+            success: function (data) {
+                if(data.status=='success') {
+
+                    $("#table1").bootstrapTable("load", data.result.list);
+                    $("#table2").bootstrapTable("load", data.result.list);
+                    $("#table3").bootstrapTable("load", data.result.list);
+                }else{
+                    var errHtml ="";
+                    for(var i=0;i<data.result.errors.length;i++){
+                        errHtml+=data.result.errors[i]+"<br/>";
+                    }
+                    $("#error").html(errHtml);
+                    $("#error").show();
+                }
+            }
+        });
+    }
+</script>
+</html>

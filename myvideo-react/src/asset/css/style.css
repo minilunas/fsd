@@ -1,0 +1,28 @@
+.video {
+    height: 100%;
+    width: 100%;
+}
+
+.videoplayer {
+
+    width: 90%;
+    height: 90%;
+}
+
+.progress-video{
+    width:100%;color: white;height: 3px;
+}
+.col-md-12 i,span{
+    color:white;
+    padding-right: 20px;
+    padding-top:15px;
+    font-size: 25px;
+}
+.col-md-12 span{
+    font-size: 20px;
+}
+
+.newvideo{
+    margin-top: 80px;
+    padding:50px;
+}

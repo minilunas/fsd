@@ -1,0 +1,40 @@
+{
+  "playlist": [
+    {
+      "id": "5934eb10-ae14-11e9-aa6c-3df6ae7c89c6",
+      "url": "https://video.pearvideo.com/mp4/adshort/20190724/cont-1581872-14173808_adpkg-ad_hd.mp4",
+      "title": "video1",
+      "status": "1",
+      "disableStatus": "disabled"
+    },
+    {
+      "id": "938f45d0-ae14-11e9-ae21-51f3eafd286f",
+      "url": "https://video.pearvideo.com/mp4/adshort/20190724/cont-1581613-13774809-141452_adpkg-ad_hd.mp4",
+      "title": "video2",
+      "status": "1",
+      "disableStatus": "disabled"
+    },
+    {
+      "id": "dc1392c0-ae14-11e9-b33a-89241b11babc",
+      "title": "video3",
+      "url": "https://video.pearvideo.com/mp4/adshort/20190724/cont-1581872-14173808_adpkg-ad_hd.mp4",
+      "status": "0",
+      "disableStatus": ""
+    },
+    {
+      "id": "b9988760-ae18-11e9-b7a7-a77979548c4f",
+      "url": "https://video.pearvideo.com/mp4/adshort/20190724/cont-1581879-14173937_adpkg-ad_hd.mp4",
+      "title": "video4",
+      "status": "1",
+      "disableStatus": "disabled"
+    },
+    {
+      "id": "3b113670-ae19-11e9-b199-7bd79e5ae449",
+      "title": "video5",
+      "url": "https://video.pearvideo.com/mp4/adshort/20190724/cont-1581872-14173808_adpkg-ad_hd.mp4",
+      "status": "0",
+      "disableStatus": ""
+    }
+  ],
+  "users": []
+}

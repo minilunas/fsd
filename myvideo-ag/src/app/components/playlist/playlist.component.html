@@ -1,0 +1,8 @@
+<p class="navbar-brand">Vides - FSD </p>
+<ul class="nav  nav-pills flex-column "  *ngFor="let item of playlist">
+
+    <li class="nav-item" >
+        <a class="nav-link" href="javascript:void(0)" (click)="playVideo(item.id)" >
+          <i class="fa fa-play-circle fa-1x text-info">{{item.title}}</i></a></li>
+
+</ul>

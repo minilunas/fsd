@@ -1,0 +1,23 @@
+<div class="progress" style="width:100%;color: white;height: 3px;">
+  <div class="progress-bar bg-success" #progressBar style="width:0%">
+  </div>
+</div>
+
+<div class="col-md-12" style="padding-top: 15px">
+  <i class="fa {{ppclass}}" #playPauseBtn id="play" title="{{pptitle}}" (click)="playAndPause()"></i>
+  <!--  <i class="fa fa-pause " #pauseBtn id="pause" title="pause" style="display: none;"></i>-->
+  <i class="fa fa-stop" #reloadBtn id="reload" title="reload" (click)="reload()"></i>
+  <i class="fa {{muteclass}}" #volumeOnBtn id="volumeOn" title="{{mutetitle}}" (click)="isMute()"></i>
+  <!--  <i class="fa fa-volume-off " #volumeOffBtn id="volumeOff" title="unmute" style="display: none;"></i>-->
+  <i class="fa fa-plus" #plusBtn id="plus" title="increase" (click)="increase()"></i>
+  <i class="fa fa-minus" #minusBtn id="minus" title="decrease" (click)="decrease()"></i>
+
+    <span class="float-right" style="color: white;">{{unlikeText}}</span>
+    <i class="fa fa-thumbs-down text-danger float-right" #unlikeBtn (click)="unlike()"></i>
+
+    <span class=" float-right" style="color: white;padding-right: 30px;">{{likeText}}</span>
+    <i class="fa fa-thumbs-up text-success float-right" #likeBtn (click)="like()"></i>
+
+</div>
+
+

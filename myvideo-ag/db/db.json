@@ -1,0 +1,47 @@
+{
+  "playlist": [
+    {
+      "id": 1,
+      "title": "Introduction to HTML5",
+      "url": "assets/media/movie1.mp4",
+      "status": "1",
+      "remarks": ""
+    },
+    {
+      "id": 2,
+      "title": "Introduction to Styling with CSS3",
+      "url": "assets/media/movie2.mp4",
+      "status": "1",
+      "remarks": ""
+    },
+    {
+      "id": 3,
+      "title": "Introduction to Bootstrap 4",
+      "url": "assets/media/movie3.mp4",
+      "status": "1",
+      "remarks": ""
+    },
+    {
+      "id": 4,
+      "title": "Learn to create website with HTML5, CSS3 and Bootstrap4",
+      "url": "assets/media/movie4.mp4",
+      "status": "1",
+      "remarks": ""
+    },
+    {
+      "id": 5,
+      "title": "Introduction to Javascript",
+      "url": "assets/media/movie5.mp4",
+      "status": "1",
+      "remarks": ""
+    },
+    {
+      "id": "514ef81b-d653-4f03-abfb-55bf3ea143ad",
+      "title": "testvideo",
+      "url": "https://youtu.be/0KSOMA3QBU0?list=RD0KSOMA3QBU0&t=35",
+      "status": "1",
+      "remarks": ""
+    }
+  ],
+  "users": []
+}
